@@ -38,6 +38,8 @@ python -m venv C:\B\A\python\venv\main
 python -m venv ~/Desktop/B/A/python/venv/main
 ```
 
+**3. Configure workspace:**
+
 Then open project in VSCode > Ctrl+Shift+P > Terminal: Create New Terminal
 
 **Windows:**
@@ -54,15 +56,71 @@ C:\B\A\python\venv\main\Scripts\activate.ps1 # Or use .bat when CMD
 source ~/Desktop/B/A/python/venv/main/bin/activate
 ```
 
-**3. Install dependencies:**
+**4. Install dependencies:**
+
+The project already has many pre-selected good packages, so you can easily get started, or remove unused packages whenever you want.
+
+<details>
+  <summary>💡 How to remove unused packages?</summary>
+
+  <p>Here are the most common and effective ways to remove unused packages from the <code>requirements.txt</code> file:</p>
+  <h3>1. Manual Review and Editing:</h3>
+  <ul>
+    <li><strong>Best for small projects:</strong> If you already have a relatively short <code>requirements.txt</code> file, you can often manually go through it and identify packages that are no longer actively used in your code.</li>
+    <li><strong>Time-consuming for larger projects:</strong> This becomes less practical as your project and the list of dependencies grow.</li>
+  </ul>
+  <h3>2. Automated Tools:</h3>
+  <p>These tools analyze your project's code to help determine unused dependencies. Here are some popular options:</p>
+  <ul>
+    <li><strong>pip-autoremove:</strong>
+      <ul>
+        <li><strong>Install:</strong> <code>pip install pip-autoremove</code></li>
+        <li><strong>Usage:</strong> <code>pip-autoremove requirements.txt -o requirements.txt</code> (This overwrites your original file)</li>
+      </ul>
+    </li>
+    <li><strong>pipdeptree (with reverse flag):</strong>
+      <ul>
+        <li><strong>Install:</strong> <code>pip install pipdeptree</code></li>
+        <li><strong>Usage:</strong></li>
+        <li><pre><code>pipdeptree -r &gt; possible_unused.txt  # Creates a list of possible unused packages
+# Manually review possible_unused.txt and edit requirements.txt
+</code></pre></li>
+      </ul>
+    </li>
+    <li><strong>Other Tools:</strong>
+      <ul>
+        <li><code>pip-unused</code>: A simple command-line tool.</li>
+        <li>There may be similar plugins for your IDE or code editor.</li>
+      </ul>
+    </li>
+  </ul>
+  <h3>Important Considerations:</h3>
+  <ul>
+    <li><strong>Caution:</strong> Automated tools can be helpful but they might not be 100% accurate. It's always best to double-check and test your project after removing packages from <code>requirements.txt</code>.</li>
+    <li><strong>Version Conflicts:</strong> Sometimes packages might remain indirectly necessary due to dependencies of other required packages. Be mindful of complex dependencies when removing packages.</li>
+  </ul>
+  <h3>Workflow Example (Using pip-autoremove):</h3>
+  <ol>
+    <li><strong>Install pip-autoremove:</strong>
+      <pre><code>pip install pip-autoremove
+</code></pre></li>
+    <li><strong>Create a backup (optional, but recommended):</strong>
+      <pre><code>cp requirements.txt requirements.txt.bak
+</code></pre></li>
+    <li><strong>Remove unused packages:</strong>
+      <pre><code>pip-autoremove requirements.txt -o requirements.txt
+</code></pre></li>
+    <li><strong>Review Changes:</strong> Check the updated <code>requirements.txt</code> to make sure the automated tool didn't remove anything essential.</li>
+    <li><strong>Test Thoroughly:</strong> Run your project's tests or experiment with it manually to ensure everything still works as expected.</li>
+  </ol>
+
+</details>
 
 ```bash
 cd backend && pip install -r requirements.txt
 ```
 
-### Development
-
-**4. Start the development server:**
+**5. Start the development server:**
 
 ```bash
 uvicorn main:app --reload

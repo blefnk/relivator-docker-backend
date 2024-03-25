@@ -1,0 +1,30 @@
+{
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.associations": {
+    "*.ignore": "plaintext",
+    "*.txt": "plaintext"
+  },
+  "editor.tabSize": 2,
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "markdownlint.config": {
+    "MD033": {
+      "allowed_elements": [
+        "a",
+        "code",
+        "details",
+        "h3",
+        "img",
+        "li",
+        "ol",
+        "p",
+        "pre",
+        "strong",
+        "summary",
+        "ul"
+      ]
+    }
+  },
+}
