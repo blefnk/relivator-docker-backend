@@ -58,10 +58,16 @@ source ~/Desktop/B/A/python/venv/main/bin/activate
 
 **4. Install dependencies:**
 
-The project already has many pre-selected good packages, so you can easily get started, or remove unused packages whenever you want.
+The project already has many pre-selected good packages, so you can easily get started, or remove¹ unused packages whenever you want.
+
+So, to install the packages listed in `requirements.txt` just run:
+
+```bash
+cd backend && pip install -r requirements.txt
+```
 
 <details>
-  <summary>💡 How to remove unused packages?</summary>
+  <summary>¹💡 How to remove unused packages?</summary>
 
   <p>Here are the most common and effective ways to remove unused packages from the <code>requirements.txt</code> file:</p>
   <h3>1. Manual Review and Editing:</h3>
@@ -113,22 +119,21 @@ The project already has many pre-selected good packages, so you can easily get s
     <li><strong>Review Changes:</strong> Check the updated <code>requirements.txt</code> to make sure the automated tool didn't remove anything essential.</li>
     <li><strong>Test Thoroughly:</strong> Run your project's tests or experiment with it manually to ensure everything still works as expected.</li>
   </ol>
+  <hr/>
 
 </details>
 
-```bash
-cd backend && pip install -r requirements.txt
-```
+### Development
 
-**5. Start the development server:**
+**Start the development server:**
 
 ```bash
 uvicorn main:app --reload
-# http://localhost:8000
-# http://localhost:8000/items/5?q=example
+# http://localhost:10000
+# http://localhost:10000/items/5?q=example
 ```
 
-### Important notice
+**A tip!**
 
 Remember to work on the activate virtual environment after each new terminal with:
 
@@ -142,18 +147,23 @@ So you will see something like that:
 - Windows `(main) PS C:\B\S\reliverse\relivator-docker-backend\backend >`
 - macOS/Linux `(main) user@machine:~/Desktop/B/S/reliverse/relivator-docker-backend/backend$`
 
-### Docker (Optional)
+### Deployment and dockerizing
 
-_Instructions for building and running the project using Docker and Docker Compose are forthcoming. Prerequisites:_
+_Instructions for building and running the project using Docker are forthcoming._
 
-- [Docker](https://docs.docker.com/get-docker)
-- [Docker Compose](https://docs.docker.com/compose/install)
+**Getting Things Ready:**
+
+1. Install [Docker Desktop](https://docs.docker.com/get-docker) and [flyctl](https://fly.io/docs/hands-on/install-flyctl).
+2. Create an account with `fly auth signup` or login with `fly auth login`.
+3. Run `fly launch` from inside your project source directory to create, configure, and (for most apps) deploy a new application.
+4. If prompted, run `fly deploy` to deploy your new app (**or to redeploy after changes!**).
 
 ## Contributing
 
-Thank you for considering contributions to Reliverse, means to Relivator Universe!
+Thanks for considering contributions to Reliverse, means to Relivator Universe, means to the one of main universe of Bleverse (Blefonix Multiverse)! 😍
 
-1. Follow the installation steps above.
-2. Make your changes.
-3. Update `requirements.txt` if needed: `pip freeze > requirements.txt`
-4. Submit a pull request.
+1. Follow the installation steps above, including deployment steps.
+2. Update `requirements.txt` if needed: `pip freeze > requirements.txt`.
+3. Make your changes. Ensure you have successful build with `flyctl deploy`.
+4. Commit the changes to your repo fork. Submit a PR to [relivator-docker-backend](https://github.com/blefnk/relivator-docker-backend).
+5. [optional] Visit and sign up on [bleverse.com](https://bleverse.com) to collect your reward as a thank you. (You can win even Blefcoins or even Blefonix Stone!)

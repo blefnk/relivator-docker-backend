@@ -2,7 +2,9 @@
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "files.associations": {
+    "requirements.txt": "properties",
     "*.ignore": "plaintext",
+    "*.toml": "properties",
     "*.txt": "plaintext"
   },
   "editor.tabSize": 2,
@@ -16,6 +18,7 @@
         "code",
         "details",
         "h3",
+        "hr",
         "img",
         "li",
         "ol",
