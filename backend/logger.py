@@ -3,12 +3,15 @@ from logging.handlers import RotatingFileHandler
 
 from colorlog import (
     ColoredFormatter,
-)  # You need to install this package: pip install colorlog
+) # You need to install this
+# package: pip install colorlog
 
 def get_logger(logger_name, log_level=logging.INFO, log_file="application.log"):
     logger = logging.getLogger(logger_name)
     logger.setLevel(log_level)
-    logger.propagate = False  # Prevent log propagation to avoid double logging
+    # Prevent log propagation
+    # to avoid double logging
+    logger.propagate = False
 
     formatter = logging.Formatter(
         "[%(levelname)s] %(name)s [%(filename)s:%(lineno)d]: %(message)s"
