@@ -1,14 +1,11 @@
 import logging
 from logging.handlers import RotatingFileHandler
-
-from colorlog import (
-    ColoredFormatter,
-) # You need to install this
-# package: pip install colorlog
+from colorlog import ColoredFormatter
 
 def get_logger(logger_name, log_level=logging.INFO, log_file="application.log"):
     logger = logging.getLogger(logger_name)
     logger.setLevel(log_level)
+
     # Prevent log propagation
     # to avoid double logging
     logger.propagate = False

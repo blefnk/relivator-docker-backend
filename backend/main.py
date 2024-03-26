@@ -42,8 +42,8 @@ def abc_test():
 
 def debug_setup():
     if getenv("DEV_MODE") == "true":
-        import debugpy # logger has flyctl crash
-        # logger.debug("👨‍💻 Running in dev mode")
+        import debugpy
+        logger.debug("👨‍💻 Running in dev mode")
         debugpy.listen(("0.0.0.0", 5678))
 
 def run_app():
@@ -51,7 +51,7 @@ def run_app():
     uvicorn.run(app, host="0.0.0.0", port=10000)
 
 if __name__ == "__main__":
-    # import needed here when running main.py to debug
+    # import needed here if you want debug main.py
     from dotenv import load_dotenv # type: ignore
     load_dotenv()
     debug_setup()
