@@ -138,8 +138,8 @@ uvicorn main:app --reload
 Remember to work on the activate virtual environment after each new terminal with:
 
 ```bash
-C:\B\A\python\venv\main\Scripts\activate.ps1 #.bat
-source ~/Desktop/B/A/python/venv/main/bin/activate
+C:\B\A\python\venv\main\Scripts\activate.ps1 # .bat cmd, Windows
+source ~/Desktop/B/A/python/venv/main/bin/activate # macOS/Linux
 ```
 
 So you will see something like that:

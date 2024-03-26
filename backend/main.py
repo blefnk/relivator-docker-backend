@@ -20,7 +20,7 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/")
 async def root() -> str:
-    return "Hello, Reliverse!"
+    return "Hello, Reliverse and Bleverse!"
 
 @app.get("/favicon.ico")
 async def favicon():
