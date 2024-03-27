@@ -1,3 +1,4 @@
+import requests
 from typing import Union
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse, HTMLResponse, FileResponse
@@ -39,6 +40,25 @@ def update_item(item_id: int, item: Item):
 @app.get("/abc")
 def abc_test():
     return{"hello":"abc"}
+
+# Backend API health check
+@app.get("/backend-health")
+def check_backend_health():
+    return JSONResponse(content={"status": "ok"}, status_code=200)
+
+# Frontend API health check
+@app.get("/frontend-health")
+def check_frontend_health():
+    frontend_url = "https://relifront.bleverse.com"
+    try:
+        response = requests.get(frontend_url)
+        if response.status_code == 200:
+            return JSONResponse(content={"status": "ok", "frontend_health": True}, status_code=200)
+        else:
+            return JSONResponse(content={"status": "ok", "frontend_health": False}, status_code=200)
+    except requests.exceptions.RequestException as e:
+        logger.error(f"Error checking frontend health: {e}")
+        return JSONResponse(content={"status": "ok", "frontend_health": False}, status_code=200)
 
 def debug_setup():
     if getenv("DEV_MODE") == "true":
